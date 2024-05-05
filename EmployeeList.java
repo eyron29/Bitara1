@@ -114,8 +114,10 @@ public class EmployeeList {
         int x;
         if(emp.isEmpty()){
             System.out.println("No Employee Record Found...");
+            System.out.println("------------------------------------------------------------------");
         }
         else{
+            System.out.println("------------------------------------------------------------------");
             for(x =0; x<emp.size(); x++){
                 System.out.println("Employee Position Code: " + emp.get(x).posCode);
                 System.out.println("Department: " + emp.get(x).depCode);
@@ -130,6 +132,7 @@ public class EmployeeList {
 
             try{
                 FileWriter writer = new FileWriter("employeeList.txt");
+                //C:Users//
                 writer.write("Employee Payroll Record");
                 for(x=0; x<emp.size(); x++){
                     writer.write("\n\nEmployee Position Code: " + emp.get(x).posCode);
@@ -140,7 +143,7 @@ public class EmployeeList {
                     writer.write("\nRegular Pay: " + emp.get(x).regPay);
                     writer.write("\nOvertime Pay: " + emp.get(x).otPay);
                     writer.write("\nNet Pay: " + emp.get(x).netPay);
-                    writer.write("\n------------------------------------------");
+                    System.out.println ("------------------------------------------------------------");
                 }
                 writer.close();
             } catch (IOException e) {
@@ -148,5 +151,26 @@ public class EmployeeList {
             }
         }
     }//diplay
+
+}
+
+class Employee{
+
+    String posCode,empName, depCode, empPos;
+    //int posCode;
+    double hoursWorked, regPay, otPay, netPay;
+    //deduction;
+
+    Employee(String posCode, String depCode, String empName, String empPos, double hoursWorked, double regPay, double otPay, double netPay){
+        this.posCode = posCode;
+        this.depCode = depCode;
+        this.empName = empName;
+        this.empPos = empPos;
+        this.hoursWorked = hoursWorked;
+        this.regPay = regPay;
+        this.otPay = otPay;
+        this.netPay = netPay;
+        //this.deduction = deduction;
+    }
 
 }
